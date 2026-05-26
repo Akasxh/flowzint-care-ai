@@ -1,0 +1,13 @@
+{
+  "name": "FlowZint Care AI",
+  "short_name": "FlowZint Care",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any"
+    }
+  ]
+}
