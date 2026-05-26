@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-label="ZintMart">
+  <defs>
+    <linearGradient id="zm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="url(#zm)"/>
+  <path d="M10 24 L16 14 L22 24 Z" fill="#fff" opacity="0.95"/>
+  <circle cx="16" cy="26" r="2" fill="#fff"/>
+  <text x="44" y="27" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#134E4A">ZintMart</text>
+  <text x="44" y="36" font-family="system-ui,sans-serif" font-size="8" fill="#0D9488" letter-spacing="0.12em">INDIA D2C</text>
+</svg>

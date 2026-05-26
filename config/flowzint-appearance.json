@@ -1,0 +1,20 @@
+{
+  "customAppName": "FlowZint Care AI",
+  "customLogoUrl": "/flowzint-care-logo.svg",
+  "welcomeMessages": {
+    "system": "Welcome to the ZintMart Returns Desk. I answer from official policy documents with citations.",
+    "user": "Hi! I'm Priya from ZintMart support. Returns, refunds, ya warranty — poochiye."
+  },
+  "footerLinks": [
+    { "label": "Demo Storefront", "url": "../demo/storefront/index.html" },
+    { "label": "Documentation", "url": "../docs/ARCHITECTURE.md" },
+    { "label": "FlowZint Hackathon", "url": "https://flowzint.in/2026/ai/hackothon/" }
+  ],
+  "embedDefaults": {
+    "data-assistant-name": "FlowZint Care Assistant",
+    "data-brand-image-url": "/flowzint-care-logo.svg",
+    "data-button-color": "#0D9488",
+    "data-position": "bottom-right"
+  },
+  "note": "Apply these in Admin → Appearance after first Docker boot. See docs/QUICKSTART.md."
+}

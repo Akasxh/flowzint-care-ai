@@ -1,0 +1,7 @@
+{
+  "embedUuid": "da55c1f2-6e4f-4445-b0dd-9f95fb7053eb",
+  "workspaceSlug": "returns-desk",
+  "baseApiUrl": "http://localhost:3001/api/embed",
+  "widgetScript": "http://localhost:3001/embed/anythingllm-chat-widget.min.js",
+  "note": "Regenerate via scripts/setup-workspace.sh after fresh Docker install"
+}

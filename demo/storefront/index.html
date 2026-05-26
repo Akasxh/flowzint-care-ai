@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZintMart — Electronics & Fashion for India</title>
+  <meta name="description" content="ZintMart — Indian D2C electronics and fashion with COD, easy returns, and AI-powered support.">
+  <link rel="icon" href="assets/zintmart-icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #0D9488;
+      --teal-light: #14B8A6;
+      --teal-dark: #0F766E;
+      --teal-muted: #CCFBF1;
+      --cream: #F0FDFA;
+      --ink: #134E4A;
+      --ink-soft: #115E59;
+      --slate: #475569;
+      --slate-light: #64748b;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(13, 148, 136, 0.08);
+      --shadow-lg: 0 12px 40px rgba(13, 148, 136, 0.14);
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      background: var(--ink);
+      color: var(--teal-muted);
+      text-align: center;
+      padding: 0.45rem 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .top-bar strong { color: var(--white); font-weight: 600; }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.85rem 1.5rem;
+    }
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo img { height: 36px; width: auto; display: block; }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    nav a {
+      color: var(--slate);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover { background: var(--cream); color: var(--ink); }
+    .nav-help {
+      background: var(--teal) !important;
+      color: var(--white) !important;
+      font-weight: 600 !important;
+    }
+    .nav-help:hover { background: var(--teal-dark) !important; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(165deg, var(--cream) 0%, #ecfdf5 40%, #fff 100%);
+      padding: 3.5rem 1.5rem 4rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--white);
+      border: 1px solid var(--teal-muted);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+    .hero h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-dark); }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--slate);
+      max-width: 460px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 4px 14px rgba(13,148,136,0.35); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-outline { background: var(--white); color: var(--ink); border: 1.5px solid #cbd5e1; }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal-dark); }
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid #e2e8f0;
+    }
+    .hero-card:first-child { grid-column: 1 / -1; }
+    .hero-card .emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero-card h3 { font-size: 0.95rem; color: var(--ink); margin-bottom: 0.25rem; }
+    .hero-card p { font-size: 0.82rem; color: var(--slate-light); }
+
+    /* ── Trust bar ── */
+    .trust {
+      background: var(--white);
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.25rem 1.5rem;
+    }
+    .trust-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .trust-item svg { flex-shrink: 0; color: var(--teal); }
+
+    /* ── Products ── */
+    .section { padding: 3.5rem 1.5rem; }
+    .section-inner { max-width: 1180px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .section-header p { color: var(--slate-light); font-size: 0.95rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .card-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+    .card-img.electronics { background: linear-gradient(145deg, #ecfdf5, #d1fae5); }
+    .card-img.fashion { background: linear-gradient(145deg, #fef3c7, #fde68a); }
+    .card-img.wearable { background: linear-gradient(145deg, #e0e7ff, #c7d2fe); }
+    .card-wishlist {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .card-body { padding: 1.1rem 1.25rem 1.25rem; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: var(--teal-muted);
+      color: var(--teal-dark);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .rating { font-size: 0.78rem; color: var(--slate-light); }
+    .card-body h3 { font-size: 1rem; font-weight: 600; color: #0f172a; margin-bottom: 0.35rem; }
+    .card-body .sku { font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem; }
+    .price-row { display: flex; align-items: baseline; gap: 0.5rem; }
+    .price { color: var(--teal-dark); font-weight: 700; font-size: 1.15rem; }
+    .mrp { color: #94a3b8; font-size: 0.85rem; text-decoration: line-through; }
+    .discount { color: #dc2626; font-size: 0.78rem; font-weight: 600; }
+
+    /* ── Returns + Demo ── */
+    .returns-section {
+      background: var(--ink);
+      color: var(--white);
+      padding: 3.5rem 1.5rem;
+    }
+    .returns-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .returns-grid h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      margin-bottom: 1rem;
+    }
+    .returns-grid p { color: #99f6e4; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .returns-steps { list-style: none; }
+    .returns-steps li {
+      display: flex;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #ccfbf1;
+    }
+    .returns-steps .num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .demo-panel {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .demo-panel h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .demo-panel > p { font-size: 0.85rem; color: #99f6e4; margin-bottom: 1rem; }
+    .demo-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .demo-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      font-size: 0.8rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-align: left;
+      font-family: inherit;
+    }
+    .demo-chip:hover { background: var(--teal); border-color: var(--teal); }
+    .demo-chip:active { transform: scale(0.97); }
+    .demo-chip:focus-visible {
+      outline: 2px solid var(--teal-light);
+      outline-offset: 2px;
+    }
+    .btn:focus-visible, .open-chat-btn:focus-visible, .help-pill:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+    .open-chat-btn {
+      width: 100%;
+      background: var(--teal-light);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .open-chat-btn:hover { background: var(--teal); }
+
+    /* ── Status banner ── */
+    .status-banner {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      display: none;
+    }
+    .status-banner.visible { display: block; }
+    .status-banner.loading { background: #eff6ff; border: 1px solid #93c5fd; color: #1e40af; }
+    .status-banner.error { background: #fffbeb; border: 1px solid #fcd34d; color: #92400e; }
+    .status-banner.ok { background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; }
+    .status-banner code { background: rgba(0,0,0,0.06); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.8rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: #0c4a44;
+      color: #99f6e4;
+      padding: 2.5rem 1.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-brand p { font-size: 0.85rem; margin-top: 0.75rem; max-width: 280px; line-height: 1.5; }
+    .footer-col h4 { color: var(--white); font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .footer-col a {
+      display: block;
+      color: #99f6e4;
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: var(--white); }
+
+    /* ── Floating help pill ── */
+    .help-pill {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.25rem;
+      z-index: 9998;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      display: none;
+      animation: slideUp 0.4s ease;
+    }
+    .help-pill.visible { display: block; }
+    @keyframes slideUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-inner, .returns-grid, .footer-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      nav a:not(.nav-help) { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 2.5rem 1rem 3rem; }
+      .section { padding: 2.5rem 1rem; }
+      .help-pill { bottom: 5rem; right: 1rem; font-size: 0.78rem; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand p { margin: 0.75rem auto 0; }
+      .demo-chips { gap: 0.4rem; }
+      .demo-chip { font-size: 0.75rem; padding: 0.45rem 0.7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-badge span { animation: none; }
+      .help-pill { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <strong>Free metro pickup</strong> on returns · COD available · Powered by <strong>FlowZint Care AI</strong>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#" aria-label="ZintMart home">
+        <img src="assets/zintmart-logo.svg" alt="ZintMart" width="160" height="40">
+      </a>
+      <nav>
+        <a href="#shop">Shop</a>
+        <a href="#returns">Returns</a>
+        <a href="#support">Support</a>
+        <button class="btn nav-help" id="navHelpBtn" type="button">💬 Need help?</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span></span> AI Returns Desk live</div>
+        <h1>Quality D2C,<br><em>delivered across India</em></h1>
+        <p class="hero-desc">Electronics, ethnic fashion, and everyday essentials — with 7-day returns, COD checkout, and Hinglish-friendly support that cites your policy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shop">Shop bestsellers →</a>
+          <button class="btn btn-outline" id="heroHelpBtn" type="button">Ask about returns</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="emoji">🎧</div>
+          <h3>SoundBass Pro Earbuds</h3>
+          <p>₹1,499 · 7-day return · SKU ZM-EB-101</p>
+        </div>
+        <div class="hero-card">
+          <div class="emoji">👗</div>
+          <h3>Cotton Kurta</h3>
+          <p>₹799 · 15-day return</p>
+        </div>
+        <div class="hero-card">
+          <div class="emoji">⌚</div>
+          <h3>FitPulse S3</h3>
+          <p>₹3,499 · Free pickup</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Secure checkout
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+        Free metro pickup
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        5–7 day UPI refunds
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        24/7 AI Returns Desk
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="shop">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Featured products</h2>
+        <p>Handpicked bestsellers with clear return windows</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-img electronics">
+            <span class="card-wishlist">♡</span>
+            🎧
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge">7-day return</span>
+              <span class="rating">★ 4.6 (2.1k)</span>
+            </div>
+            <h3>SoundBass Pro Earbuds</h3>
+            <p class="sku">SKU ZM-EB-101 · Wireless · IPX5</p>
+            <div class="price-row">
+              <span class="price">₹1,499</span>
+              <span class="mrp">₹2,499</span>
+              <span class="discount">40% off</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img electronics">
+            <span class="card-wishlist">♡</span>
+            📱
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge">7-day return</span>
+              <span class="rating">★ 4.4 (890)</span>
+            </div>
+            <h3>Nova X5 Smartphone</h3>
+            <p class="sku">SKU ZM-PH-220 · 128GB · 6.5"</p>
+            <div class="price-row">
+              <span class="price">₹12,999</span>
+              <span class="mrp">₹15,999</span>
+              <span class="discount">19% off</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img fashion">
+            <span class="card-wishlist">♡</span>
+            👗
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge">15-day return</span>
+              <span class="rating">★ 4.7 (3.4k)</span>
+            </div>
+            <h3>Cotton Straight Kurta</h3>
+            <p class="sku">SKU ZM-FN-044 · M–XXL · Indigo</p>
+            <div class="price-row">
+              <span class="price">₹799</span>
+              <span class="mrp">₹1,299</span>
+              <span class="discount">38% off</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img wearable">
+            <span class="card-wishlist">♡</span>
+            ⌚
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge">7-day return</span>
+              <span class="rating">★ 4.5 (1.6k)</span>
+            </div>
+            <h3>FitPulse S3 Watch</h3>
+            <p class="sku">SKU ZM-WT-301 · AMOLED · SpO2</p>
+            <div class="price-row">
+              <span class="price">₹3,499</span>
+              <span class="mrp">₹5,999</span>
+              <span class="discount">42% off</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="returns-section" id="returns">
+    <div class="returns-grid">
+      <div>
+        <h2>Easy returns, grounded answers</h2>
+        <p>Our Returns Desk is powered by FlowZint Care AI — it reads ZintMart's official policy documents and cites them in every answer. No invented refund dates.</p>
+        <ol class="returns-steps">
+          <li><span class="num">1</span><span>Click the chat bubble or "Need help?" below</span></li>
+          <li><span class="num">2</span><span>Ask in English or Hinglish — Priya handles both</span></li>
+          <li><span class="num">3</span><span>Get policy citations, pickup steps, or a ticket ID</span></li>
+        </ol>
+      </div>
+      <div class="demo-panel" id="support">
+        <h3>Try these demo questions</h3>
+        <p>Click a chip — it opens chat and sends the question</p>
+        <div class="demo-chips">
+          <button class="demo-chip" data-question="What is the return window for wireless earbuds?" type="button">🎧 Earbuds return window?</button>
+          <button class="demo-chip" data-question="Order FZ-8821 ka box damage tha — kya karun?" type="button">📦 FZ-8821 box damage</button>
+          <button class="demo-chip" data-question="Refund kitne din mein aayega UPI se?" type="button">💳 UPI refund timeline</button>
+          <button class="demo-chip" data-question="Mujhe human agent chahiye abhi" type="button">🙋 Human agent chahiye</button>
+          <button class="demo-chip" data-question="COD return kaise karte hain?" type="button">💵 COD return process</button>
+        </div>
+        <button class="open-chat-btn" id="openChatBtn" type="button">Open Returns Desk chat →</button>
+        <div class="status-banner loading visible" id="widgetStatus" style="margin-top:1rem;">
+          Connecting to FlowZint Care AI at <code>http://localhost:3001</code>…
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/zintmart-logo.svg" alt="ZintMart" width="140" height="35" style="filter:brightness(10);">
+        <p>Demo storefront for FlowZint Care AI — AI Returns Desk for Indian D2C brands.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#shop">Electronics</a>
+        <a href="#shop">Fashion</a>
+        <a href="#shop">Wearables</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#returns">Return policy</a>
+        <a href="#support">AI Returns Desk</a>
+        <a href="https://github.com/Akasxh/flowzint-care-ai" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>ZintMart Demo · <a href="https://flowzint.in/2026/ai/hackothon/">FlowZint AI Hackathon 2026</a></p>
+    </div>
+  </footer>
+
+  <button class="help-pill visible" id="helpPill" type="button">👋 Returns help?</button>
+
+  <!-- FlowZint Care AI embed -->
+  <script
+    id="flowzint-embed"
+    data-embed-id="da55c1f2-6e4f-4445-b0dd-9f95fb7053eb"
+    data-base-api-url="http://localhost:3001/api/embed"
+    data-assistant-name="Priya · ZintMart Returns"
+    data-brand-image-url="http://localhost:3001/flowzint-care-logo.svg"
+    data-button-color="#0D9488"
+    data-position="bottom-right"
+    data-greeting="Namaste! Main Priya hoon — returns, refund, ya warranty help chahiye?"
+    data-no-sponsor="true"
+    data-open-on-load="false"
+    src="http://localhost:3001/embed/anythingllm-chat-widget.min.js">
+  </script>
+
+  <script>
+    (function () {
+      const BASE = 'http://localhost:3001';
+      const statusEl = document.getElementById('widgetStatus');
+      const embedScript = document.getElementById('flowzint-embed');
+
+      function setStatus(type, html) {
+        statusEl.className = 'status-banner visible ' + type;
+        statusEl.innerHTML = html;
+      }
+
+      var SEND_PROMPT_EVENT = 'anythingllm-embed-send-prompt';
+
+      function isChatOpen() {
+        return !!document.querySelector('[aria-label="Close"]');
+      }
+
+      function openChat() {
+        if (isChatOpen()) return true;
+        const btn = document.querySelector('[aria-label="Toggle Menu"]');
+        if (btn) {
+          btn.click();
+          return true;
+        }
+        return false;
+      }
+
+      function sendPrompt(question) {
+        window.dispatchEvent(new CustomEvent(SEND_PROMPT_EVENT, {
+          detail: { command: question },
+        }));
+      }
+
+      function sendQuestion(question, attempt) {
+        attempt = attempt || 0;
+        if (attempt > 20) {
+          setStatus('error', '<strong>Chat widget not ready.</strong> Refresh the page after FlowZint Care AI is running.');
+          return;
+        }
+
+        if (!openChat()) {
+          setTimeout(function () { sendQuestion(question, attempt + 1); }, 250);
+          return;
+        }
+
+        // ChatContainer mounts only after the widget opens; wait before dispatching.
+        setTimeout(function () {
+          if (!isChatOpen()) {
+            sendQuestion(question, attempt + 1);
+            return;
+          }
+          sendPrompt(question);
+        }, 350);
+      }
+
+      document.querySelectorAll('.demo-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          sendQuestion(chip.dataset.question);
+        });
+      });
+
+      ['openChatBtn', 'navHelpBtn', 'heroHelpBtn', 'helpPill'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('click', openChat);
+      });
+
+      fetch(BASE + '/api/ping', { method: 'GET', mode: 'cors' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return fetch(BASE + '/embed/anythingllm-chat-widget.min.js', { method: 'HEAD' });
+        })
+        .then(function (r) {
+          if (!r.ok) throw new Error('Widget unavailable');
+          setStatus('ok', '✓ Connected to FlowZint Care AI. Click a demo chip or the chat bubble ↘');
+        })
+        .catch(function () {
+          setStatus('error',
+            '<strong>FlowZint Care AI is offline.</strong> Start Docker: <code>./scripts/start.sh</code> then run <code>./scripts/setup-workspace.sh</code>. Open <code>http://localhost:3001</code> to verify.');
+          if (embedScript) embedScript.remove();
+        });
+
+      embedScript.addEventListener('error', function () {
+        setStatus('error',
+          '<strong>Chat widget failed to load.</strong> Ensure Docker is running on port 3001. See README → Demo in 5 minutes.');
+      });
+
+      embedScript.addEventListener('load', function () {
+        setTimeout(function () {
+          if (document.querySelector('[aria-label="Toggle Menu"]')) {
+            setStatus('ok', '✓ Returns Desk ready. Try a demo question or click the chat bubble ↘');
+          }
+        }, 1500);
+      });
+    })();
+  </script>
+</body>
+</html>
